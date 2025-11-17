@@ -5,7 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>صدقة جارية - على روح الأستاذ محمود حمدان عبدالعزيز</title>
-  
   <style>
     body {
       font-family: "Amiri", serif;
@@ -15,7 +14,6 @@
       line-height: 1.9;
       color: #222;
     }
-    
     .container {
       max-width: 900px;
       margin: auto;
@@ -24,24 +22,19 @@
       border-radius: 20px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
     }
-    
-    h1,
-    h2 {
+    h1, h2 {
       text-align: center;
       margin-bottom: 10px;
       color: #0a3d62;
     }
-    
     h3 {
       color: #00695c;
       border-right: 5px solid #00897b;
       padding-right: 10px;
     }
-    
     .section {
       margin-bottom: 35px;
     }
-    
     .surah-box {
       background: #f9f9f9;
       padding: 18px;
@@ -50,7 +43,6 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
       border-right: 4px solid #009688;
     }
-    
     .dhikr {
       background: #fefefe;
       padding: 15px;
@@ -60,25 +52,22 @@
       border-right: 4px solid #00897b;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
     }
-    
     .dhikr-text {
       width: 100%;
       font-size: 18px;
       line-height: 1.6;
     }
-    
     .dhikr-controls {
       width: 100%;
       display: flex;
-      gap: 15px;
+      gap: 12px;
       align-items: center;
       flex-wrap: wrap;
     }
-    
     .dhikr-controls button {
-      padding: 12px 24px;
+      padding: 12px 20px;
       font-size: 16px;
       border: none;
       border-radius: 10px;
@@ -88,38 +77,20 @@
       transition: 0.2s;
       flex-shrink: 0;
     }
-    
     .dhikr-controls button:hover {
       background: #00695c;
       transform: scale(1.05);
     }
-    
     .dhikr-controls button:active {
       animation: shake 0.2s;
     }
-    
     @keyframes shake {
-      0% {
-        transform: translateX(0);
-      }
-      
-      25% {
-        transform: translateX(-3px);
-      }
-      
-      50% {
-        transform: translateX(3px);
-      }
-      
-      75% {
-        transform: translateX(-3px);
-      }
-      
-      100% {
-        transform: translateX(0);
-      }
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-3px); }
+      50% { transform: translateX(3px); }
+      75% { transform: translateX(-3px); }
+      100% { transform: translateX(0); }
     }
-    
     .circle {
       width: 50px;
       height: 50px;
@@ -133,39 +104,52 @@
       font-size: 16px;
       transition: 0.3s;
     }
-    
     .circle.maxed {
       background: #ff5722;
       transform: scale(1.2);
     }
-    
+    .reminder-box {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 12px;
+      border-right: 4px solid #009688;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      max-width: 300px;
+      margin: auto;
+    }
+    .reminder-box input, .reminder-box button {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    .reminder-box button {
+      background: #00897b;
+      color: white;
+      cursor: pointer;
+      border: none;
+      transition: 0.2s;
+    }
+    .reminder-box button:hover {
+      background: #00695c;
+    }
     @media (max-width: 600px) {
-      .dhikr-text {
-        font-size: 16px;
-      }
-      
-      .dhikr-controls button {
-        padding: 10px 20px;
-        font-size: 15px;
-      }
-      
-      .circle {
-        width: 45px;
-        height: 45px;
-        font-size: 14px;
-      }
+      .dhikr-text { font-size: 16px; }
+      .dhikr-controls button { padding: 10px 16px; font-size: 15px; }
+      .circle { width: 45px; height: 45px; font-size: 14px; }
     }
   </style>
 </head>
 
 <body>
-  
   <div class="container">
-    
     <h1>صدقة جارية</h1>
     <h2>على روح الأستاذ محمود حمدان عبدالعزيز</h2>
-    
-    <!-- آية الكرسي -->
+
+    <!-- سور القرآن -->
     <div class="section">
       <h3>آية الكرسي</h3>
       <div class="surah-box">
@@ -181,10 +165,7 @@
           وَهُوَ الْعَلِيُّ الْعَظِيمُ
         </p>
       </div>
-    </div>
-    
-    <!-- قراءة مرة واحدة -->
-    <div class="section">
+
       <h3>سورة الفاتحة</h3>
       <div class="surah-box">
         <p>
@@ -198,6 +179,7 @@
           غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ
         </p>
       </div>
+
       <h3>سورة الإخلاص</h3>
       <div class="surah-box">
         <p>
@@ -207,6 +189,7 @@
           وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ
         </p>
       </div>
+
       <h3>سورة الفلق</h3>
       <div class="surah-box">
         <p>
@@ -217,6 +200,7 @@
           وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ
         </p>
       </div>
+
       <h3>سورة الناس</h3>
       <div class="surah-box">
         <p>
@@ -229,15 +213,24 @@
         </p>
       </div>
     </div>
-    
+
     <!-- أذكار -->
     <div class="section">
       <h3>أذكار</h3>
       <div id="adhkar-list"></div>
     </div>
-    
+
+    <!-- تذكير يومي -->
+    <div class="section">
+      <h3>تذكير يومي بالتسبيح</h3>
+      <div class="reminder-box">
+        <label>اختر وقت التذكير:</label>
+        <input type="time" id="reminder-time"/>
+        <button onclick="setReminder()">حفظ التذكير</button>
+      </div>
+    </div>
   </div>
-  
+
   <script>
     const adhkar = [
       "سبحان الله وبحمده سبحان الله العظيم",
@@ -254,55 +247,89 @@
       "اللهم ارزقنا حسن الخاتمة",
       "اللهم اغفر وارحم عبدك محمود حمدان عبدالعزيز واجعل قبره روضة من رياض الجنة"
     ];
-    
+
     const list = document.getElementById("adhkar-list");
-    
+
     adhkar.forEach((text, idx) => {
       const div = document.createElement("div");
       div.className = "dhikr";
-      div.setAttribute("data-count", 0);
-      
+      let savedCount = localStorage.getItem("dhikr_" + idx) || 0;
+      div.setAttribute("data-count", savedCount);
+
       div.innerHTML = `
         <div class="dhikr-text">${idx + 1} - ${text}</div>
         <div class="dhikr-controls">
           <button onclick="inc(this)">تسبيح</button>
-          <div class="circle count">0</div>
-          <button onclick="shareDhikr('${text.replace(/'/g, "\\'")}')">مشاركة</button>
+          <div class="circle count">${savedCount}</div>
+          <button onclick="resetCount(this)">إعادة ضبط</button>
+          <button onclick="shareDhikr('${text.replace(/'/g,"\\'")}')">مشاركة</button>
         </div>
       `;
-      
       list.appendChild(div);
     });
-    
+
     function inc(btn) {
       const box = btn.closest(".dhikr");
       let count = parseInt(box.getAttribute("data-count"));
-      if (count < 100) {
+      if(count < 100){
         count++;
         box.setAttribute("data-count", count);
         const circle = box.querySelector(".circle");
         circle.textContent = count;
-        if (count === 100) circle.classList.add("maxed");
-        
-        // اهتزاز الجهاز (Android و iOS الحديثة)
-        if (navigator.vibrate) navigator.vibrate(100);
+        circle.style.background = `rgb(${0+count*2}, 150, 136)`;
+        if(count===100) circle.classList.add("maxed");
+        localStorage.setItem("dhikr_"+Array.from(list.children).indexOf(box), count);
+        if(navigator.vibrate) navigator.vibrate(100);
       }
     }
-    
-    function shareDhikr(text) {
-      if (navigator.share) {
-        navigator.share({
-            title: 'أذكار',
-            text: text,
-            url: window.location.href
-          }).then(() => console.log('تمت المشاركة بنجاح'))
-          .catch((err) => console.log('حدث خطأ في المشاركة', err));
-      } else {
-        alert('المشاركة غير مدعومة على هذا الجهاز');
-      }
-    }
-  </script>
-  
-</body>
 
+    function resetCount(btn){
+      const box = btn.closest(".dhikr");
+      box.setAttribute("data-count",0);
+      const circle = box.querySelector(".circle");
+      circle.textContent = 0;
+      circle.style.background="#009688";
+      circle.classList.remove("maxed");
+      localStorage.setItem("dhikr_"+Array.from(list.children).indexOf(box),0);
+    }
+
+    function shareDhikr(text){
+      if(navigator.share){
+        navigator.share({title:'أذكار',text:text,url:window.location.href})
+        .then(()=>console.log('تمت المشاركة'))
+        .catch(err=>console.log('خطأ في المشاركة',err));
+      } else { alert('المشاركة غير مدعومة على هذا الجهاز'); }
+    }
+
+    window.addEventListener('load', () => {
+      const savedTime = localStorage.getItem('reminderTime');
+      if(savedTime) document.getElementById('reminder-time').value = savedTime;
+    });
+
+    if("Notification" in window){
+      Notification.requestPermission().then(p => {
+        if(p!=="granted") alert("لتفعيل التذكير اليومي، يجب السماح بالإشعارات");
+      });
+    }
+
+    function setReminder(){
+      const timeInput = document.getElementById('reminder-time').value;
+      if(!timeInput) return alert("اختر وقتًا صالحًا");
+      localStorage.setItem('reminderTime', timeInput);
+      alert("تم حفظ التذكير!");
+    }
+
+    setInterval(()=>{
+      const savedTime = localStorage.getItem('reminderTime');
+      if(!savedTime) return;
+      const now = new Date();
+      const [hour,minute] = savedTime.split(":").map(Number);
+      if(now.getHours()===hour && now.getMinutes()===minute){
+        if("Notification" in window && Notification.permission==="granted"){
+          new Notification("تذكير بالتسبيح",{body:"لا تنسى أداء أذكارك اليوم!"});
+        }
+      }
+    },60000);
+  </script>
+</body>
 </html>
