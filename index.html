@@ -54,40 +54,80 @@
       padding: 15px;
       border-radius: 12px;
       margin-bottom: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
       border-right: 4px solid #00897b;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
-    button {
-      padding: 8px 18px;
+    .dhikr-text {
+      width: 100%;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .dhikr-controls {
+      width: 100%;
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .dhikr-controls button {
+      padding: 12px 24px;
+      font-size: 16px;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       background: #00897b;
       color: white;
-      font-size: 15px;
       cursor: pointer;
-      transition: 0.3s;
+      transition: 0.2s;
+      flex-shrink: 0;
     }
-    button:hover {
+
+    .dhikr-controls button:hover {
       background: #00695c;
+      transform: scale(1.05);
+    }
+
+    .dhikr-controls button:active {
+      animation: shake 0.2s;
+    }
+
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-3px); }
+      50% { transform: translateX(3px); }
+      75% { transform: translateX(-3px); }
+      100% { transform: translateX(0); }
     }
 
     .circle {
-      width: 48px;
-      height: 48px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
-      background: #00897b;
+      background: #009688;
       color: white;
       font-weight: bold;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
+      font-size: 16px;
+      transition: 0.3s;
     }
 
+    .circle.maxed {
+      background: #ff5722;
+      transform: scale(1.2);
+    }
+
+    @media (max-width: 600px) {
+      .dhikr-text { font-size: 16px; }
+      .dhikr-controls button { padding: 10px 20px; font-size: 15px; }
+      .circle { width: 45px; height: 45px; font-size: 14px; }
+    }
   </style>
 </head>
 
@@ -98,6 +138,7 @@
   <h1>صدقة جارية</h1>
   <h2>على روح الأستاذ محمود حمدان عبدالعزيز</h2>
 
+  <!-- آية الكرسي -->
   <div class="section">
     <h3>آية الكرسي</h3>
     <div class="surah-box">
@@ -115,6 +156,7 @@
     </div>
   </div>
 
+  <!-- قراءة مرة واحدة -->
   <div class="section">
     <h3>قراءة مرة واحدة</h3>
 
@@ -166,6 +208,7 @@
     </div>
   </div>
 
+  <!-- أذكار -->
   <div class="section">
     <h3>أذكار</h3>
     <div id="adhkar-list"></div>
@@ -198,10 +241,10 @@
     div.setAttribute("data-count", 0);
 
     div.innerHTML = `
-      <div style="flex:1;">
+      <div class="dhikr-text">
         ${idx + 1} - ${text}
       </div>
-      <div style="display:flex;align-items:center;gap:12px;">
+      <div class="dhikr-controls">
         <button onclick="inc(this)">تسبيح</button>
         <div class="circle count">0</div>
       </div>
@@ -211,12 +254,16 @@
   });
 
   function inc(btn) {
-    const box = btn.parentElement.parentElement;
+    const box = btn.closest(".dhikr");
     let count = parseInt(box.getAttribute("data-count"));
     if (count < 100) {
       count++;
       box.setAttribute("data-count", count);
-      box.querySelector(".count").textContent = count;
+      const circle = box.querySelector(".circle");
+      circle.textContent = count;
+      if(count === 100){
+        circle.classList.add("maxed");
+      }
     }
   }
 </script>
