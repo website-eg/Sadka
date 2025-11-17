@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>صدقة جارية - الأستاذ محمود حمدان عبدالعزيز</title>
+  <style>
+    body {
+      font-family: "Amiri", serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.8;
+      color: #222;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .section {
+      margin-bottom: 25px;
+    }
+    button {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 6px;
+      background: #009688;
+      color: white;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    button:hover {
+      background: #00796b;
+    }
+    .dhikr {
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>صدقة جارية</h1>
+    <h2>على روح الأستاذ محمود حمدان عبدالعزيز</h2>
+
+    <div class="section">
+      <h3>آية الكرسي</h3>
+      <p>
+        اللّهُ لاَ إِلَـهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ لاَ تَأْخُذُهُ سِنَةٌ وَلاَ
+        نَوْمٌ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الأَرْضِ مَن ذَا الَّذِي
+        يَشْفَعُ عِندَهُ إِلاَّ بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا
+        خَلْفَهُمْ وَلاَ يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلاَّ بِمَا شَاء وَسِعَ
+        كُرْسِيُّهُ السَّمَاوَاتِ وَالأَرْضِ وَلاَ يَؤُودُهُ حِفْظُهُمَا وَهُوَ
+        الْعَلِيُّ الْعَظِيمُ.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>أذكار للتسبيح (مع عدّاد)</h3>
+      <div class="dhikr" data-count="0"><p>1- سبحان الله</p><button onclick="increment(this)">تسبيح</button> <span>0 / 50</span></div>
+      <div class="dhikr" data-count="0"><p>2- الحمد لله</p><button onclick="increment(this)">تسبيح</button> <span>0 / 50</span></div>
+      <div class="dhikr" data-count="0"><p>3- لا إله إلا الله</p><button onclick="increment(this)">تسبيح</button> <span>0 / 50</span></div>
+      <div class="dhikr" data-count="0"><p>4- الله أكبر</p><button onclick="increment(this)">تسبيح</button> <span>0 / 50</span></div>
+      <div class="dhikr" data-count="0"><p>5- لا حول ولا قوة إلا بالله</p><button onclick="increment(this)">تسبيح</button> <span>0 / 50</span></div>
+    </div>
+
+    <div class="section">
+      <h3>آيات من القرآن الكريم</h3>
+      <p>﴿ مَا عِندَكُمْ يَنفَدُ وَمَا عِندَ اللَّهِ بَاقٍ ﴾</p>
+      <p>﴿ وَبَشِّرِ الصَّابِرِينَ ﴾</p>
+    </div>
+  </div>
+
+<script>
+  function increment(btn) {
+    const wrapper = btn.parentElement;
+    let count = parseInt(wrapper.getAttribute('data-count'));
+    if (count < 50) {
+      count++;
+      wrapper.setAttribute('data-count', count);
+      wrapper.querySelector('span').textContent = count + ' / 50';
+    }
+  }
+</script>
+
+</body>
+</html>
