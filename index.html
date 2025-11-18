@@ -14,6 +14,7 @@
       line-height: 1.9;
       color: #222;
     }
+
     .container {
       max-width: 900px;
       margin: auto;
@@ -22,19 +23,24 @@
       border-radius: 20px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
     }
-    h1, h2 {
+
+    h1,
+    h2 {
       text-align: center;
       margin-bottom: 10px;
       color: #0a3d62;
     }
+
     h3 {
       color: #00695c;
       border-right: 5px solid #00897b;
       padding-right: 10px;
     }
+
     .section {
       margin-bottom: 35px;
     }
+
     .surah-box {
       background: #f9f9f9;
       padding: 18px;
@@ -43,6 +49,7 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
       border-right: 4px solid #009688;
     }
+
     .dhikr {
       background: #fefefe;
       padding: 15px;
@@ -54,11 +61,13 @@
       flex-direction: column;
       gap: 12px;
     }
+
     .dhikr-text {
       width: 100%;
       font-size: 18px;
       line-height: 1.6;
     }
+
     .dhikr-controls {
       width: 100%;
       display: flex;
@@ -66,6 +75,7 @@
       align-items: center;
       flex-wrap: wrap;
     }
+
     .dhikr-controls button {
       padding: 12px 20px;
       font-size: 16px;
@@ -77,37 +87,73 @@
       transition: 0.2s;
       flex-shrink: 0;
     }
+
     .dhikr-controls button:hover {
       background: #00695c;
       transform: scale(1.05);
     }
+
     .dhikr-controls button:active {
       animation: shake 0.2s;
     }
+
     @keyframes shake {
-      0% { transform: translateX(0); }
-      25% { transform: translateX(-3px); }
-      50% { transform: translateX(3px); }
-      75% { transform: translateX(-3px); }
-      100% { transform: translateX(0); }
+      0% {
+        transform: translateX(0);
+      }
+
+      25% {
+        transform: translateX(-3px);
+      }
+
+      50% {
+        transform: translateX(3px);
+      }
+
+      75% {
+        transform: translateX(-3px);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
     }
+
     .circle {
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      background: #009688;
-      color: white;
-      font-weight: bold;
+      background: #ccc;
+      position: relative;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 16px;
-      transition: 0.3s;
     }
-    .circle.maxed {
+
+    .circle .water {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 0%;
+      background: #009688;
+      border-radius: 0 0 50% 50%;
+      transition: height 0.4s ease-in-out;
+      z-index: 1;
+    }
+
+    .circle.maxed .water {
       background: #ff5722;
-      transform: scale(1.2);
     }
+
+    .circle .count-text {
+      position: relative;
+      z-index: 2;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
     .reminder-box {
       display: flex;
       flex-direction: column;
@@ -120,12 +166,15 @@
       max-width: 300px;
       margin: auto;
     }
-    .reminder-box input, .reminder-box button {
+
+    .reminder-box input,
+    .reminder-box button {
       padding: 10px;
       font-size: 16px;
       border-radius: 8px;
       border: 1px solid #ccc;
     }
+
     .reminder-box button {
       background: #00897b;
       color: white;
@@ -133,13 +182,58 @@
       border: none;
       transition: 0.2s;
     }
+
     .reminder-box button:hover {
       background: #00695c;
     }
+
+    #popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #009688;
+      color: white;
+      padding: 25px 40px;
+      border-radius: 15px;
+      font-size: 18px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      z-index: 999;
+      text-align: center;
+    }
+
+    #popup button {
+      margin: 10px 5px 0 5px;
+      padding: 10px 15px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      background: #00695c;
+      color: white;
+      font-size: 16px;
+      transition: 0.2s;
+    }
+
+    #popup button:hover {
+      background: #004d40;
+    }
+
     @media (max-width: 600px) {
-      .dhikr-text { font-size: 16px; }
-      .dhikr-controls button { padding: 10px 16px; font-size: 15px; }
-      .circle { width: 45px; height: 45px; font-size: 14px; }
+      .dhikr-text {
+        font-size: 16px;
+      }
+
+      .dhikr-controls button {
+        padding: 10px 16px;
+        font-size: 15px;
+      }
+
+      .circle {
+        width: 45px;
+        height: 45px;
+        font-size: 14px;
+      }
     }
   </style>
 </head>
@@ -231,6 +325,13 @@
     </div>
   </div>
 
+  <!-- بوب أب التهاني -->
+  <div id="popup">
+    <p>✨ بارك الله فيك! لقد أكملت كل الأذكار 10 مرات. نسأل الله أن يغفر ويرحم الفقيد ويجعل قبره روضة من رياض الجنة ✨</p>
+    <button onclick="sharePopup()">مشاركة</button>
+    <button onclick="closePopup()">إلغاء</button>
+  </div>
+
   <script>
     const adhkar = [
       "سبحان الله وبحمده سبحان الله العظيم",
@@ -249,6 +350,7 @@
     ];
 
     const list = document.getElementById("adhkar-list");
+    let popupShown = localStorage.getItem("popupShown") === "true";
 
     adhkar.forEach((text, idx) => {
       const div = document.createElement("div");
@@ -260,7 +362,10 @@
         <div class="dhikr-text">${idx + 1} - ${text}</div>
         <div class="dhikr-controls">
           <button onclick="inc(this)">تسبيح</button>
-          <div class="circle count">${savedCount}</div>
+          <div class="circle">
+            <div class="water" style="height:${savedCount*10}%"></div>
+            <span class="count-text">${savedCount}</span>
+          </div>
           <button onclick="resetCount(this)">إعادة ضبط</button>
           <button onclick="shareDhikr('${text.replace(/'/g,"\\'")}')">مشاركة</button>
         </div>
@@ -268,18 +373,42 @@
       list.appendChild(div);
     });
 
-    function inc(btn) {
+    function showPopup() { document.getElementById("popup").style.display = "block"; }
+    function closePopup() { document.getElementById("popup").style.display = "none"; }
+    function sharePopup() {
+      if(navigator.share){
+        navigator.share({title:'أذكار',text:'لقد أكملت كل الأذكار 10 مرات!',url:window.location.href});
+      } else { alert('المشاركة غير مدعومة على هذا الجهاز'); }
+    }
+
+    function checkAllCompleted() {
+      if (popupShown) return;
+      const allDhikr = document.querySelectorAll(".dhikr");
+      const allComplete = Array.from(allDhikr).every(box => parseInt(box.getAttribute("data-count")) >= 10);
+      if (allComplete) {
+        popupShown = true;
+        localStorage.setItem("popupShown", "true");
+        showPopup();
+      }
+    }
+
+    function inc(btn){
       const box = btn.closest(".dhikr");
       let count = parseInt(box.getAttribute("data-count"));
-      if(count < 100){
+      if(count < 10){
         count++;
         box.setAttribute("data-count", count);
         const circle = box.querySelector(".circle");
-        circle.textContent = count;
-        circle.style.background = `rgb(${0+count*2}, 150, 136)`;
-        if(count===100) circle.classList.add("maxed");
+        const water = circle.querySelector(".water");
+        const text = circle.querySelector(".count-text");
+
+        water.style.height = (count*10) + "%";
+        text.textContent = count;
+
+        if(count===10) circle.classList.add("maxed");
         localStorage.setItem("dhikr_"+Array.from(list.children).indexOf(box), count);
         if(navigator.vibrate) navigator.vibrate(100);
+        checkAllCompleted();
       }
     }
 
@@ -287,17 +416,18 @@
       const box = btn.closest(".dhikr");
       box.setAttribute("data-count",0);
       const circle = box.querySelector(".circle");
-      circle.textContent = 0;
-      circle.style.background="#009688";
+      const water = circle.querySelector(".water");
+      const text = circle.querySelector(".count-text");
+
+      water.style.height = "0%";
+      text.textContent = "0";
       circle.classList.remove("maxed");
       localStorage.setItem("dhikr_"+Array.from(list.children).indexOf(box),0);
     }
 
     function shareDhikr(text){
       if(navigator.share){
-        navigator.share({title:'أذكار',text:text,url:window.location.href})
-        .then(()=>console.log('تمت المشاركة'))
-        .catch(err=>console.log('خطأ في المشاركة',err));
+        navigator.share({title:'أذكار',text:text,url:window.location.href});
       } else { alert('المشاركة غير مدعومة على هذا الجهاز'); }
     }
 
